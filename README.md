@@ -2,7 +2,7 @@
 
 Welcome,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **November 9, 2023**
 
 ## Reminders
 

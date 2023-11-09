@@ -8,7 +8,7 @@ RUN apt-get update \
 
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-ARG USERNAME=codeany
+ARG USERNAME=cistudent
 RUN useradd -ms /bin/bash $USERNAME
 USER $USERNAME
 WORKDIR /home/$USERNAME

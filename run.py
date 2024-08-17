@@ -35,11 +35,36 @@ def survey_feedback():
 
     answer_three = input("Please enter your answer here: ")
 
+    print('\nThank you for your response')
+
     return answer_one, answer_two, answer_three
 
+
+def validate_response(answer):
+    """
+    Check if input entered is a number between 1 and 5
+    """
+    try:
+        number = int(answer)
+        if 1 <= number <= 5:
+            return number
+        else:
+            return None       
+    except ValueError:
+        return None
+        
 responses = survey_feedback()
 
-print(responses)
+validated_responses = []
+for response in responses:
+    valid_response = validate_response(response)
+    if valid_response is None:
+        print("Invalid input. Please enter a valid number between 1 and 5")
+    else:
+        validated_responses.append(valid_response)
+
+print(f"Validated responses: {validated_responses}")
+
 
 
     

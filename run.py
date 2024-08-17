@@ -21,17 +21,17 @@ def survey_feedback():
     Get answer survey questions from the user
     """
     print('How would you rate your overall experience at Bunratty Castle today?')
-    print('1 = Poor, 5 = Excellent\n')
+    print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
 
     answer_one = input("Please enter your answer here: ")
 
     print('\nHow would you rate the quality of customer service provided by the staff?')
-    print('1 = Very Poor, 5 = Excellent\n')
+    print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
 
     answer_two = input("Please enter your answer here: ")
 
     print('\nHow likely are you to recommend this attraction to a friend or family member?')
-    print('1 = Not Likely, 5 = Very Likely\n')
+    print('1 = Very Unlikely, 2 = Unlikely, 3 = Neutral, 4 = Likely, 5 = Very Likely\n')
 
     answer_three = input("Please enter your answer here: ")
 

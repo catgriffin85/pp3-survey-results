@@ -38,10 +38,10 @@ def survey_feedback():
     while answer_three == '' or is_input_not_valid(answer_three):
         answer_three = input('Invalid input! Please enter a number between 1 and 5: ').strip()
 
-    print('\nThank you for your response\n')
+    print('\nThank you for taking the time to complete our survey!\n')
 
     return answer_one, answer_two, answer_three
-
+ 
 
 def is_input_not_valid(answer):
     """
@@ -52,6 +52,14 @@ def is_input_not_valid(answer):
     if answer in RESPONSES:
         return False
     return True
+
+
+def add_to_results_worksheet(data):
+    """
+    Adds survey results to the google sheet worksheet
+    """
+    results_worksheet = SHEET.worksheet('results')
+    results_worksheet.append_row(data)
 
 
 def welcome_message():
@@ -65,7 +73,15 @@ def welcome_message():
 
 if __name__ == '__main__':
     welcome_message()
-    survey_feedback()
+    survey_responses = survey_feedback()
+
+    answer_one, answer_two, answer_three = survey_responses
+
+    add_to_results_worksheet(list(survey_responses))
+
+    print(survey_responses)
+
+
 
 
 

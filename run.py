@@ -62,6 +62,28 @@ def add_to_results_worksheet(data):
     results_worksheet.append_row(data)
 
 
+def all_survey_results():
+    """
+    This functions gets the data from the google sheet
+    """
+    results = SHEET.worksheet('results').get_all_values()
+    for row in results:
+        print(row)
+
+def question_one_count():
+    results = SHEET.worksheet('results').get_all_values()
+    first_question_responses = [int(row[0]) for row in results if row [0].isdigit()]
+
+    count_five = first_question_responses.count(5)
+
+    total_responses = len(first_question_responses)
+
+    percentage_of_fives_q1 = round(count_five / total_responses * 100)
+
+    print(f'Number of fives: {count_five}')
+    print(f'Total responses: {total_responses}')
+    print(f'Percentage of fives: {percentage_of_fives_q1}%')
+
 def welcome_message():
     """
     Welcome message for the user before starting the survey
@@ -78,6 +100,13 @@ if __name__ == '__main__':
     answer_one, answer_two, answer_three = survey_responses
 
     add_to_results_worksheet(list(survey_responses))
+
+    all_survey_results()
+
+    question_one_count()
+
+
+    
 
 
 

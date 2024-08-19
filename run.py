@@ -40,7 +40,7 @@ def survey_feedback():
 
     print('\nThank you for taking the time to complete our survey!\n')
 
-    return answer_one, answer_two, answer_three
+    return int(answer_one), int(answer_two), int(answer_three)
  
 
 def is_input_not_valid(answer):
@@ -78,8 +78,6 @@ if __name__ == '__main__':
     answer_one, answer_two, answer_three = survey_responses
 
     add_to_results_worksheet(list(survey_responses))
-
-    print(survey_responses)
 
 
 

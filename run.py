@@ -15,7 +15,10 @@ SHEET = GSPREAD_CLIENT.open('survey_results')
 
 def survey_feedback():
     """
-    Get answer survey questions from the user
+    Provides survey question to user and requests a response.
+    Response is checked and if valid the next question will show.
+    If response is invalid and error message and another attempt
+    will be presented.
     """
     print('How would you rate your overall experience at Bunratty Castle?')
     print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
@@ -23,7 +26,7 @@ def survey_feedback():
     answer_one = input("Please enter your answer here: ").strip()
     while answer_one == '' or is_input_not_valid(answer_one):
         answer_one = input('Invalid input! Please try again: ').strip()
-
+    
     print('\nHow would you rate the quality of customer service provided?')
     print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
 
@@ -38,15 +41,14 @@ def survey_feedback():
     while answer_three == '' or is_input_not_valid(answer_three):
         answer_three = input('Invalid input! Please try again: ').strip()
 
-    print('\nThank you for taking the time to complete our survey!\n')
-
     return int(answer_one), int(answer_two), int(answer_three)
 
 
 def is_input_not_valid(answer):
     """
     This checks the answer to ensure it is between 1 and 5
-    and returns a Boolean True or False
+    and returns a Boolean True or False that is used to validate
+    the users answer.
     """
     RESPONSES = ['1', '2', '3', '4', '5']
     if answer in RESPONSES:
@@ -56,43 +58,84 @@ def is_input_not_valid(answer):
 
 def add_to_results_worksheet(data):
     """
-    Adds survey results to the google sheet worksheet
+    Adds survey results to the results tab on the
+    Google Sheet worksheet.
     """
     results_worksheet = SHEET.worksheet('results')
     results_worksheet.append_row(data)
 
 
-def all_survey_results():
-    """
-    This functions gets the data from the google sheet
-    """
+def count_input_in_column(input_value, column_index):
     results = SHEET.worksheet('results').get_all_values()
-    for row in results:
-        print(row)
+    
+    column_values = [row[column_index] for row in results if row[column_index].isdigit()]
+
+    column_values = [int(value) for value in column_values]
+
+    count_user_input = column_values.count(input_value)
+
+    total_responses = len(column_values)
+
+    answer_percentage = round(count_user_input / total_responses * 100)
+
+    return count_user_input, answer_percentage
 
 
-def question_one_count():
-    results = SHEET.worksheet('results').get_all_values()
-    first_question_responses = [int(row[0]) for row in results if row[0].isdigit()]
+def question_one_result(input_value):
+    column_index = 0
 
-    count_five = first_question_responses.count(5)
+    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
 
-    total_responses = len(first_question_responses)
+    ##print(f'Input {answer_one}. Count of input: {count_user_input}')
+    
+    print(f'\n{answer_percentage}% of visitors also rated their experience as a {answer_one}')
 
-    percentage_of_fives_q1 = round(count_five / total_responses * 100)
 
-    print(f'Number of fives: {count_five}')
-    print(f'Total responses: {total_responses}')
-    print(f'Percentage of fives: {percentage_of_fives_q1}%')
+def question_two_result(input_value):
+    column_index = 1
+
+    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
+
+    ##print(f'Input {answer_two}. Count of input: {count_user_input}')
+    
+    print(f'{answer_percentage}% of visitors also rated our customer service as a {answer_two}')
+
+
+def question_three_result(input_value):
+    column_index = 2
+
+    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
+
+    if input_value == 1:
+        answer = 'not at all likely'
+    elif input_value == 2:
+        answer = 'unlikely'
+    elif input_value == 3:
+        answer = 'maybe likely'
+    elif input_value == 4:
+        answer = 'likely'
+    else:
+        answer = 'very likely'
+
+    ##print(f'Input {answer_three}. Count of input: {count_user_input}')
+    
+    print(f'{answer_percentage}% of visitors are also {answer} to recommend Bunratty Castle')
 
 
 def welcome_message():
     """
-    Welcome message for the user before starting the survey
+    Welcome message for the user before starting the survey.
     """
     print('Thank you for visiting Bunratty Castle today.')
     print('We value your opinion and would love to hear your thoughts!')
     print('Could you please spare a few minutes to complete this survey?\n')
+
+
+def closing_message():
+    """
+    Closing message for the user once they have completed the survey.
+    """
+    print('\nThank you for taking the time to complete our survey!\n')
 
 
 if __name__ == '__main__':
@@ -103,6 +146,12 @@ if __name__ == '__main__':
 
     add_to_results_worksheet(list(survey_responses))
 
-    all_survey_results()
+    input_value_one = answer_one
+    input_value_two = answer_two
+    input_value_three = answer_three
 
-    question_one_count()
+    question_one_result(input_value_one)
+    question_two_result(input_value_two)
+    question_three_result(input_value_three)
+
+    closing_message()

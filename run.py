@@ -119,14 +119,14 @@ def question_three_result(input_value):
 
     ##print(f'Input {answer_three}. Count of input: {count_user_input}')
     
-    print(f'{answer_percentage}% of visitors are also {answer} to recommend Bunratty Castle')
+    print(f'{answer_percentage}% of visitors are also {answer} to recommend Bunratty Castle\n')
 
 
 def welcome_message():
     """
     Welcome message for the user before starting the survey.
     """
-    print('Thank you for visiting Bunratty Castle today.')
+    print('\nThank you for visiting Bunratty Castle today.')
     print('We value your opinion and would love to hear your thoughts!')
     print('Could you please spare a few minutes to complete this survey?\n')
 
@@ -136,6 +136,7 @@ def closing_message():
     Closing message for the user once they have completed the survey.
     """
     print('\nThank you for taking the time to complete our survey!\n')
+    print('Take a look below at how other visitors rated their experience in the survey.')
 
 
 if __name__ == '__main__':
@@ -146,6 +147,8 @@ if __name__ == '__main__':
 
     add_to_results_worksheet(list(survey_responses))
 
+    closing_message()
+
     input_value_one = answer_one
     input_value_two = answer_two
     input_value_three = answer_three
@@ -153,5 +156,3 @@ if __name__ == '__main__':
     question_one_result(input_value_one)
     question_two_result(input_value_two)
     question_three_result(input_value_three)
-
-    closing_message()

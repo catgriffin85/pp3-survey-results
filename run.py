@@ -88,7 +88,7 @@ def question_one_result(input_value):
 
     ##print(f'Input {answer_one}. Count of input: {count_user_input}')
     
-    print(f'\n{answer_percentage}% of visitors also rated their experience as a {answer_one}')
+    print(f'\n{answer_percentage}% of visitors also rated their experience as a "{answer_one}"')
 
 
 def question_two_result(input_value):
@@ -98,7 +98,7 @@ def question_two_result(input_value):
 
     ##print(f'Input {answer_two}. Count of input: {count_user_input}')
     
-    print(f'{answer_percentage}% of visitors also rated our customer service as a {answer_two}')
+    print(f'{answer_percentage}% of visitors also rated our customer service as a "{answer_two}"')
 
 
 def question_three_result(input_value):
@@ -136,7 +136,7 @@ def closing_message():
     Closing message for the user once they have completed the survey.
     """
     print('\nThank you for taking the time to complete our survey!\n')
-    print('Take a look below at how other visitors rated their experience in the survey.')
+    print('Take a look below at how other visitors rated their experience.')
 
 
 if __name__ == '__main__':

@@ -156,6 +156,35 @@ def closing_message():
     print('Take a look below at how other visitors rated their experience.')
 
 
+def competition_option():
+    """
+    This offers the user the option to enter a draw if they
+    provide their email address.
+    """
+    print('Would you like to enter a draw for free day passes?')
+    competition_entry = input('Enter Y for Yes or N for No here: \n').strip()
+
+    while competition_entry == '' or competition_entry_invalid(competition_entry):
+        competition_entry = input('Invalid input! Please enter Y or N: \n').strip()
+    
+    if competition_entry == "Y":
+        email_address = input('Please provide your email address: \n')
+        print('Thank you. You have now been entered into our draw!')
+    else:
+        print('Thank you for your response!')
+
+
+def competition_entry_invalid(answer):
+    """
+    This validates the user input in relation to entry of a
+    competition and provides a Boolean True of False.
+    """
+    COMPETITION = ['Y', 'N']
+    if answer in COMPETITION:
+        return False
+    return True
+
+
 if __name__ == '__main__':
     welcome_message()
     survey_responses = survey_feedback()
@@ -173,3 +202,5 @@ if __name__ == '__main__':
     question_one_result(input_value_one)
     question_two_result(input_value_two)
     question_three_result(input_value_three)
+
+    competition_response = competition_option()

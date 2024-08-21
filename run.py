@@ -61,7 +61,7 @@ def add_to_results_worksheet(data):
     Adds survey results to the results tab on the
     Google Sheet worksheet.
     """
-    results_worksheet = SHEET.worksheet('results')
+    results_worksheet = SHEET.worksheet("results")
     results_worksheet.append_row(data)
 
 
@@ -120,7 +120,6 @@ def question_three_result(input_value):
     user input for question three. Assigns text to answer variable
     to be used in print statement depending on user input.
     """
-
     column_index = 2
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
@@ -172,6 +171,7 @@ def competition_option():
         print('Thank you. You have now been entered into our draw!')
     else:
         print('Thank you for your response!')
+    exit()
 
 
 def competition_entry_invalid(answer):
@@ -185,14 +185,31 @@ def competition_entry_invalid(answer):
     return True
 
 
+def add_email_to_worksheet(data):
+    """
+    If the user inputs an email address for the draw
+    add to google sheet
+    """
+    email_worksheet = SHEET.worksheet("email")
+    email_worksheet.append_row(data)
+
+
+def update_worksheet(data, worksheet):
+    """
+    Updates the correct worksheet with the data provided
+    """
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+
+
 if __name__ == '__main__':
     welcome_message()
     survey_responses = survey_feedback()
 
     answer_one, answer_two, answer_three = survey_responses
 
-    add_to_results_worksheet(list(survey_responses))
-
+    update_worksheet(survey_responses, "results")
+    
     closing_message()
 
     input_value_one = answer_one
@@ -204,3 +221,7 @@ if __name__ == '__main__':
     question_three_result(input_value_three)
 
     competition_response = competition_option()
+
+    email_address = competition_option()
+
+    update_worksheet(email_address, "email")

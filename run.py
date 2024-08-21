@@ -26,7 +26,7 @@ def survey_feedback():
     answer_one = input("Please enter your answer here: \n").strip()
     while answer_one == '' or is_input_not_valid(answer_one):
         answer_one = input('Invalid input! Please try again: ').strip()
-    
+
     print('\nHow would you rate the quality of customer service provided?')
     print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
 
@@ -66,8 +66,14 @@ def add_to_results_worksheet(data):
 
 
 def count_input_in_column(input_value, column_index):
+    """
+    Gets the survey values from the results tab on the google sheet
+    to be used in the calculation for survey results.
+    Creates a variable for the column index so the correct column
+    is reference for each survey question when calculating results.
+    """
     results = SHEET.worksheet('results').get_all_values()
-    
+
     column_values = [row[column_index] for row in results if row[column_index].isdigit()]
 
     column_values = [int(value) for value in column_values]
@@ -82,26 +88,39 @@ def count_input_in_column(input_value, column_index):
 
 
 def question_one_result(input_value):
+    """
+    Provides the column index to check the user input against for
+    question one and calculates the answer percentage using the
+    user input for question one
+    """
     column_index = 0
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
 
-    ##print(f'Input {answer_one}. Count of input: {count_user_input}')
-    
     print(f'\n{answer_percentage}% of visitors also rated their experience as a "{answer_one}"')
 
 
 def question_two_result(input_value):
+    """
+    Provides the column index to check the user input against for
+    question two and calculates the answer percentage using the
+    user input for question two
+    """
     column_index = 1
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
 
-    ##print(f'Input {answer_two}. Count of input: {count_user_input}')
-    
     print(f'{answer_percentage}% of visitors also rated our customer service as a "{answer_two}"')
 
 
 def question_three_result(input_value):
+    """
+    Provides the column index to check the user input against for
+    question three and calculates the answer percentage using the
+    user input for question three. Assigns text to answer variable
+    to be used in print statement depending on user input.
+    """
+
     column_index = 2
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
@@ -117,8 +136,6 @@ def question_three_result(input_value):
     else:
         answer = 'very likely'
 
-    ##print(f'Input {answer_three}. Count of input: {count_user_input}')
-    
     print(f'{answer_percentage}% of visitors are also {answer} to recommend Bunratty Castle\n')
 
 

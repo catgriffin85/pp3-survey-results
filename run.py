@@ -167,11 +167,13 @@ def competition_option():
         competition_entry = input('Invalid input! Please enter Y or N: \n').strip()
     
     if competition_entry == "Y":
-        email_address = input('Please provide your email address: \n')
-        print('Thank you. You have now been entered into our draw!')
+        email_address = input('\nPlease provide your email address: \n')
+        print('\nThank you. You have now been entered into our draw!')
+        return email_address
     else:
-        print('Thank you for your response!')
-    exit()
+        print('\nThank you for your response!')
+        return None
+    
 
 
 def competition_entry_invalid(answer):
@@ -187,8 +189,8 @@ def competition_entry_invalid(answer):
 
 def add_email_to_worksheet(data):
     """
-    If the user inputs an email address for the draw
-    add to google sheet
+    If the user inputs an email address for the draw it is
+    added to the email tab on the google sheet
     """
     email_worksheet = SHEET.worksheet("email")
     email_worksheet.append_row(data)
@@ -196,7 +198,8 @@ def add_email_to_worksheet(data):
 
 def update_worksheet(data, worksheet):
     """
-    Updates the correct worksheet with the data provided
+    Updates the correct worksheet with the data provided.
+    Used function from Love Sandwiches project runthrough.
     """
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
@@ -220,8 +223,7 @@ if __name__ == '__main__':
     question_two_result(input_value_two)
     question_three_result(input_value_three)
 
-    competition_response = competition_option()
-
     email_address = competition_option()
 
-    update_worksheet(email_address, "email")
+    if email_address:
+        update_worksheet([email_address], "email")

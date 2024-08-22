@@ -22,14 +22,14 @@ def survey_feedback():
     will be presented.
     """
     print('How would you rate your overall experience at Bunratty Castle?')
-    print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
+    print('1 = Very Poor, 2 = Poor, 3 = Average, 4 = Good, 5 = Excellent\n')
 
     answer_one = input("Please enter your answer here: \n").strip()
     while answer_one == '' or is_input_not_valid(answer_one):
         answer_one = input('Invalid input! Please try again: ').strip()
 
     print('\nHow would you rate the quality of customer service provided?')
-    print('1 = Very Poor, 2 = Poor, 3 = Neutral, 4 = Good, 5 = Excellent\n')
+    print('1 = Very Poor, 2 = Poor, 3 = Average, 4 = Good, 5 = Excellent\n')
 
     answer_two = input("Please enter your answer here: \n").strip()
     while answer_two == '' or is_input_not_valid(answer_two):
@@ -99,9 +99,20 @@ def question_one_result(input_value):
 
     count_user_input, answer_percentage = count_input_in_column(
         input_value, column_index)
+    
+    if input_value == 1:
+        answer = 'very poor.'
+    elif input_value == 2:
+        answer = 'poor.'
+    elif input_value == 3:
+        answer = 'average.'
+    elif input_value == 4:
+        answer = 'good!'
+    else:
+        answer = 'excellent!'
 
     message = f'({count_user_input} people) also rated their experience as'
-    print(f'\n{answer_percentage}% {message} "{answer_one}"')
+    print(f'\n{answer_percentage}% {message} {answer}')
 
 
 def question_two_result(input_value):
@@ -115,8 +126,19 @@ def question_two_result(input_value):
     count_user_input, answer_percentage = count_input_in_column(
         input_value, column_index)
 
+    if input_value == 1:
+        answer = 'very poor.'
+    elif input_value == 2:
+        answer = 'poor.'
+    elif input_value == 3:
+        answer = 'average.'
+    elif input_value == 4:
+        answer = 'good!'
+    else:
+        answer = 'excellent!'
+
     message = f'({count_user_input} people) also rated our customer service as'
-    print(f'{answer_percentage}% {message} "{answer_two}"')
+    print(f'{answer_percentage}% {message} {answer}')
 
 
 def question_three_result(input_value):
@@ -142,7 +164,7 @@ def question_three_result(input_value):
     else:
         answer = 'very likely'
 
-    message = f'are also {answer} to recommend Bunratty Castle'
+    message = f'are also {answer} to recommend Bunratty Castle to a friend.'
     print(f'{answer_percentage}% ({count_user_input} people) {message}\n')
 
 
@@ -168,7 +190,7 @@ def competition_option():
     This offers the user the option to enter a draw if they
     provide their email address.
     """
-    print('Would you like to enter a draw for free day passes?')
+    print('Would you like to enter a draw for 2 free day passes?')
     comp_entry = input('Enter Y for Yes or N for No here: \n').upper().strip()
 
     while comp_entry == '' or competition_entry_invalid(comp_entry):

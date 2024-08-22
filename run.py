@@ -165,7 +165,7 @@ def competition_option():
     provide their email address.
     """
     print('Would you like to enter a draw for free day passes?')
-    comp_entry = input('Enter Y for Yes or N for No here: \n').strip()
+    comp_entry = input('Enter Y for Yes or N for No here: \n').upper().strip()
 
     while comp_entry == '' or competition_entry_invalid(comp_entry):
         comp_entry = input(

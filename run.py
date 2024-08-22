@@ -98,7 +98,8 @@ def question_one_result(input_value):
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
 
-    print(f'\n{answer_percentage}% of visitors also rated their experience as a "{answer_one}"')
+    message = f'({count_user_input} people) also rated their experience as a'
+    print(f'\n{answer_percentage}% {message} "{answer_one}"')
 
 
 def question_two_result(input_value):
@@ -111,7 +112,8 @@ def question_two_result(input_value):
 
     count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
 
-    print(f'{answer_percentage}% of visitors also rated our customer service as a "{answer_two}"')
+    message = f'({count_user_input} people) also rated our customer service as a'
+    print(f'{answer_percentage}% {message} "{answer_two}"')
 
 
 def question_three_result(input_value):
@@ -136,7 +138,8 @@ def question_three_result(input_value):
     else:
         answer = 'very likely'
 
-    print(f'{answer_percentage}% of visitors are also {answer} to recommend Bunratty Castle\n')
+    message = f'are also {answer} to recommend Bunratty Castle'
+    print(f'{answer_percentage}% ({count_user_input} people) {message}\n')
 
 
 def welcome_message():

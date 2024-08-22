@@ -165,7 +165,7 @@ def competition_option():
 
     while competition_entry == '' or competition_entry_invalid(competition_entry):
         competition_entry = input('Invalid input! Please enter Y or N: \n').strip()
-    
+
     if competition_entry == "Y":
         email_address = input('\nPlease provide your email address: \n')
         print('\nThank you. You have now been entered into our draw!')
@@ -173,7 +173,6 @@ def competition_option():
     else:
         print('\nThank you for your response!')
         return None
-    
 
 
 def competition_entry_invalid(answer):
@@ -212,7 +211,7 @@ if __name__ == '__main__':
     answer_one, answer_two, answer_three = survey_responses
 
     update_worksheet(survey_responses, "results")
-    
+
     closing_message()
 
     input_value_one = answer_one

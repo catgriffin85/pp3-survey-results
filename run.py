@@ -75,7 +75,8 @@ def count_input_in_column(input_value, column_index):
     """
     results = SHEET.worksheet('results').get_all_values()
 
-    column_values = [row[column_index] for row in results if row[column_index].isdigit()]
+    column_values = [row[column_index]
+                     for row in results if row[column_index].isdigit()]
 
     column_values = [int(value) for value in column_values]
 
@@ -96,9 +97,10 @@ def question_one_result(input_value):
     """
     column_index = 0
 
-    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
+    count_user_input, answer_percentage = count_input_in_column(
+        input_value, column_index)
 
-    message = f'({count_user_input} people) also rated their experience as a'
+    message = f'({count_user_input} people) also rated their experience as'
     print(f'\n{answer_percentage}% {message} "{answer_one}"')
 
 
@@ -110,9 +112,10 @@ def question_two_result(input_value):
     """
     column_index = 1
 
-    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
+    count_user_input, answer_percentage = count_input_in_column(
+        input_value, column_index)
 
-    message = f'({count_user_input} people) also rated our customer service as a'
+    message = f'({count_user_input} people) also rated our customer service as'
     print(f'{answer_percentage}% {message} "{answer_two}"')
 
 
@@ -125,7 +128,8 @@ def question_three_result(input_value):
     """
     column_index = 2
 
-    count_user_input, answer_percentage = count_input_in_column(input_value, column_index)
+    count_user_input, answer_percentage = count_input_in_column(
+        input_value, column_index)
 
     if input_value == 1:
         answer = 'not at all likely'

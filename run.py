@@ -24,21 +24,21 @@ def survey_feedback():
     print('How would you rate your overall experience at Bunratty Castle?')
     print('1 = Very Poor, 2 = Poor, 3 = Average, 4 = Good, 5 = Excellent\n')
 
-    answer_one = input("Please enter your answer here: \n").strip()
+    answer_one = input("Please enter your answer here: ").strip()
     while answer_one == '' or is_input_not_valid(answer_one):
         answer_one = input('Invalid input! Please try again: ').strip()
 
     print('\nHow would you rate the quality of customer service provided?')
     print('1 = Very Poor, 2 = Poor, 3 = Average, 4 = Good, 5 = Excellent\n')
 
-    answer_two = input("Please enter your answer here: \n").strip()
+    answer_two = input("Please enter your answer here: ").strip()
     while answer_two == '' or is_input_not_valid(answer_two):
         answer_two = input('Invalid input! Please try again: ').strip()
 
     print('\nHow likely are you to recommend this attraction to a friend?')
-    print('1= Not at All, 2= Unlikely, 3= Undecided, 4= Likely, 5= Very Likely\n')
+    print('1=Not at All, 2=Unlikely, 3=Undecided, 4=Likely, 5=Very Likely\n')
 
-    answer_three = input("Please enter your answer here: \n").strip()
+    answer_three = input("Please enter your answer here: ").strip()
     while answer_three == '' or is_input_not_valid(answer_three):
         answer_three = input('Invalid input! Please try again: ').strip()
 
@@ -99,7 +99,7 @@ def question_one_result(input_value):
 
     count_user_input, answer_percentage = count_input_in_column(
         input_value, column_index)
-    
+
     if input_value == 1:
         answer = 'very poor.'
     elif input_value == 2:

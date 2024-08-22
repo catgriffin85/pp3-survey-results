@@ -1,4 +1,5 @@
 import gspread
+import re
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -161,13 +162,16 @@ def competition_option():
     provide their email address.
     """
     print('Would you like to enter a draw for free day passes?')
-    competition_entry = input('Enter Y for Yes or N for No here: \n').strip()
+    comp_entry = input('Enter Y for Yes or N for No here: \n').strip()
 
-    while competition_entry == '' or competition_entry_invalid(competition_entry):
-        competition_entry = input('Invalid input! Please enter Y or N: \n').strip()
+    while comp_entry == '' or competition_entry_invalid(comp_entry):
+        comp_entry = input(
+            'Invalid input! Please enter Y or N: \n').upper().strip()
 
-    if competition_entry == "Y":
+    if comp_entry == "Y":
         email_address = input('\nPlease provide your email address: \n')
+        while not check_email(email_address):
+            email_address = input('\nPlease provide a valid email address: \n')
         print('\nThank you. You have now been entered into our draw!')
         return email_address
     else:
@@ -202,6 +206,19 @@ def update_worksheet(data, worksheet):
     """
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
+
+
+def check_email(email):
+    """
+    Most of this function I got from
+    https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python
+    It uses regular expression and returns True of False depending on whether
+    or not it matches the regex pattern
+    """
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+    if (re.fullmatch(regex, email)):
+        return True
+    return False
 
 
 if __name__ == '__main__':

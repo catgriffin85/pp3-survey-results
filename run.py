@@ -36,7 +36,7 @@ def survey_feedback():
         answer_two = input('Invalid input! Please try again: ').strip()
 
     print('\nHow likely are you to recommend this attraction to a friend?')
-    print('1= Not at All, 2= Unlikely, 3= Maybe, 4= Likely, 5= Very Likely\n')
+    print('1= Not at All, 2= Unlikely, 3= Undecided, 4= Likely, 5= Very Likely\n')
 
     answer_three = input("Please enter your answer here: \n").strip()
     while answer_three == '' or is_input_not_valid(answer_three):
@@ -154,17 +154,17 @@ def question_three_result(input_value):
         input_value, column_index)
 
     if input_value == 1:
-        answer = 'not at all likely'
+        answer = 'not at all likely to'
     elif input_value == 2:
-        answer = 'unlikely'
+        answer = 'unlikely to'
     elif input_value == 3:
-        answer = 'maybe likely'
+        answer = 'undecided if they would'
     elif input_value == 4:
-        answer = 'likely'
+        answer = 'likely to'
     else:
-        answer = 'very likely'
+        answer = 'very likely to'
 
-    message = f'are also {answer} to recommend Bunratty Castle to a friend.'
+    message = f'are also {answer} recommend Bunratty Castle to a friend.'
     print(f'{answer_percentage}% ({count_user_input} people) {message}\n')
 
 

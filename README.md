@@ -1,32 +1,47 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bunratty Castle Customer Experience Survey
 
-Welcome,
+Bunratty Castle Customer Experience Survey is a survey provided to recent visitors of the castle that is run in Heroku. The survey is used to gather feedback from visitors with the aim of helping management at Bunratty Castle identify areas that are going well and areas that may need improvement. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+You can view the Herku terminal [here](https://survey-results-pp3-fc6036f74caa.herokuapp.com/)
 
-## Reminders
+![Heroku](/assets/images/heroku-terminal.png)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Purpose
 
-## Creating the Heroku app
+The purpose of this survey is to:
+* <strong>Assess Visitor Satisfaction:</strong> It helps management understand how visitors feel about their experience, including the customer service they received and the likelyhood of them recommending Bunratty Castle to a friend. 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* <strong>Enhance Visitor Experience:</strong> By analysing feedback, management can implement changes that align with visitor expectations making the attaction much more appealing and enjoyable. 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Experience
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+<strong>Project Goals</strong>
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+As the survey owner, I want the program to:
 
-Connect your GitHub repository and deploy as normal.
+* encourage visitors to the attraction to take the survey.
+* provide clear instructions on how the feedback should be provided.
+* validate the user inputs to ensure the data provided is accurate and can be used for analysis.
+* collect inputs provided by users on a google sheet.
+* use the data collected on the google sheet to calculate response numbers and percentages.
+* provide the user with feedback on how their responses compare with other responses we have received.
+* as a 'thank you' for completing the survey, offer to enter the user into a draw for free passes.
+* validate the users email address if they do want to enter the draw.
+* thank the user for completing the survey.
 
-## Constraints
+As the user, I want the program to:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* explain which attraction the survey is referring to.
+* provide information on how I should answer the questions asked.
+* allow me to enter my responses easily.
+* provide me with information on surevey results.
+* reward me for completing the survey.
+* thank me for my time.
 
----
+## Flowchart Plan
 
-Happy coding!
+During the planning stages, I created a flowchart to help me visualise how I wanted the survey to work and what checks I wanted to do. The flow chart was created using [Lucidchart](https://www.lucidchart.com/pages/).
+
+
+
+![Lucid flow chart](/assets/images/plan.png)

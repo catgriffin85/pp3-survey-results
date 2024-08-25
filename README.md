@@ -98,3 +98,17 @@ If the user enters "Y", they will be asked to input their email address. Using c
 
 ![Draw Section](/assets/images/draw-section.png)
 
+## Technology Used
+
+* Python to write my programme.
+* JavaScript provided in the Code Institute template.
+* CSS provided in the Code Institute template.
+* HTML provided in the Code Institute template.
+* Google sheets to store the information.
+* [Heroku](https://www.heroku.com/) to deploy the project
+
+## Python Libraries Used
+
+* [gspread](https://docs.gspread.org/en/latest/) to link my google sheet so the survey answers could be stored.
+* [re](https://www.w3schools.com/python/python_regex.asp#:~:text=Python%20has%20a%20built%2Din,import%20re) to allow me to work with Regular Expressions when validating the email address input.
+

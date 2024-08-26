@@ -250,7 +250,7 @@ The code checks for that the following format is used:
 * Next it checks for .
 * Lastly it checks that the input after the . contains uppercase or lowercase letters between a and z and is between 2 and 7 letters in length
 
-I tested different variations of invalid email address to check my validation was working. When an incorrectly formatted email address was entered an message displayed advising "Please provide a valid email address: " and the user could try again.
+I tested different variations of invalid email addresses to check my validation was working. When an incorrectly formatted email address was entered a message displays advising "Please provide a valid email address: " and the user can try again to enter a valid email address.
 
 Once a valid email address is entered "Thank you. You have now been entered into our draw!" is displayed. No other inputs are required. The survey is over.
 

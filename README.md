@@ -34,7 +34,7 @@ As the user, I want the program to:
 * explain which attraction the survey is referring to.
 * provide information on how I should answer the questions asked.
 * allow me to enter my responses easily.
-* provide me with information on surevey results.
+* provide me with information on survey results.
 * reward me for completing the survey.
 * thank me for my time.
 
@@ -94,7 +94,7 @@ Once the correct input has been entered the user will be able to progress.
 
 If the user enters "N", they will be thanked for their response and no futher messages are displayed.
 
-If the user enters "Y", they will be asked to input their email address. Using code taken from [Geeks for Geeks website](https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python) and in re import email validation has been set up. The user must enter a valid email address to continue. Once the email address has been validated the user will be thanked and confirmation that they have been entered into the draw is displayed.
+If the user enters "Y", they will be asked to input their email address. Using code taken from [Geeks for Geeks website](https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python) an email validation has been set up. The user must enter a valid email address to continue. Once the email address has been validated the user will be thanked and confirmation that they have been entered into the draw is displayed.
 
 ![Draw Section](/assets/images/draw-section.png)
 
@@ -166,7 +166,7 @@ This third test is run exactly the same as the first and second tests. The same 
 
 <u>Test 4 - Inputs Adding to Google Sheet</u>
 
-Once I know my inputs are valid, I need to check that the data is flowing through to the google sheet. To check this, I opened the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=0#gid=0) and scrolled to the last line of information. It matches the last entry into the survey so the input is being added to my Google Sheet.
+Once I know my inputs are valid, I need to check that the data is flowing through to the google sheet. To check this, I opened the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=0#gid=0) to the "results" tab and scrolled to the last line of information. It matches the last entry into the survey so the input is being added to my Google Sheet.
 
 ![Google Sheet Input](/assets/images/google-sheet-check-input.png)
 
@@ -180,6 +180,8 @@ There are three parts to the testing for the Survey Results section.
 
 For the example in the print screen: 
 
+![Test 5 Survey Results](/assets/images/test-five-survey-results.png)
+
 <u>Correct Input</u>
 
 * Question one input was "3" which is "average". The first line of the survey results advises of other visitors who rated their experience as "average". This is correct so the input referenced is correct.
@@ -190,15 +192,15 @@ For the example in the print screen:
 
 <u>Correct Count of People</u>
 
-* Line one of the survey results displays that 26 people also rated their experience as average. To validate this number I opened the google sheet that stores the data and applied a filter. I filtered question one answers by "3" and did a count. The count confirmed that 3 has been entered 26 times into the survey. So the information displayed in the survey results is correct and the count is being applied to the correct column in the google sheet.
+* Line one of the survey results displays that 26 people also rated their experience as average. To validate this number I opened the google sheet that stores the data and applied a filter. I filtered question one answers by "3" and did a count. The count confirmed that 3 has been entered 26 times into the survey. So the information displayed in the survey results is correct and the count is being taken from the correct column in the google sheet.
 
 ![Google Sheet Filter Question 1](/assets/images/google-sheet-q1-filter.png)
 
-* Line two of the survey results displays that 34 people also rated the customer service as good. To validate this number I again used the google sheet that stores the data and applied a filter. I filtered question two answers by "4" and did a count. The count confirms that 4 has been entered 34 times into the survey. So the information displayed in the survey results is correct and the count is being applied to the correct column in the google sheet.
+* Line two of the survey results displays that 34 people also rated the customer service as good. To validate this number I again used the google sheet that stores the data and applied a filter. I filtered question two answers by "4" and did a count. The count confirms that 4 has been entered 34 times into the survey. So the information displayed in the survey results is correct and the count is being taken from the correct column in the google sheet.
 
 ![Google Sheet Filter Question 2](/assets/images/google-sheet-q2-filter.png)
 
-* Line three of the survey results displays that 32 people also likely to recommend Bunratty Castle to a friend. To validate this number I again used the google sheet that stores the data and applied a filter. I filtered question three answers by "4" and did a count. The count confirms that 4 has been entered 32 times into the survey. So the information displayed in the survey results is correct and the count is being applied to the correct column in the google sheet.
+* Line three of the survey results displays that 32 people are also likely to recommend Bunratty Castle to a friend. To validate this number I again used the google sheet that stores the data and applied a filter. I filtered question three answers by "4" and did a count. The count confirms that 4 has been entered 32 times into the survey. So the information displayed in the survey results is correct and the count is being taken from the correct column in the google sheet.
 
 ![Google Sheet Filter Question 3](/assets/images/google-sheet-q3-filter.png)
 
@@ -210,13 +212,13 @@ To validate the % provided in the survey results, I did a total count of the ent
 * Line two: 34 people divided by 91 total entries = 37%.
 * Line three: 32 people divided by 91 total entries = 35%
 
-All % displayed in the survey results are correct. 
+All % displayed in the survey results section are correct. 
 
 ![Google Sheet Total Entries](/assets/images/google-sheet-total-entries.png)
 
 <u>Test 6 - Option to Enter Draw</u>
 
-After the survey results are displayed another message will allow appear offering the change to win 2 free day passes. The user must enter either "Y" or "N". Validation has been set up on this input which allows the user to enter either "Y", "N", "y" or "n". Any other input will result in an error message advising the user "Invalid input! Please enter Y or N:" 
+After the survey results are displayed another message will appear offering the chance to win 2 free day passes. The user must enter either "Y" or "N". Validation has been set up on this input which allows the user to enter either "Y", "N", "y" or "n". Any other input will result in an error message advising the user "Invalid input! Please enter Y or N:" 
 
 If the user enters "Y" or "y" the input will be accepted and they will then be asked to provide an email address. 
 
@@ -244,13 +246,13 @@ The code checks for that the following format is used:
 
 * The first part of the input contains uppercase or lowercase letters between a and z or numbers between 0 and 9 or a . _ % + or -
 * Next it checks for an @ symbol
-* After this is checks if the next part of the input contains uppercase or lowercase letters between a and z or numbers between 0 and 9 or a . or _
-* Next it checks for a .
+* After this is checks if the next part of the input contains uppercase or lowercase letters between a and z or numbers between 0 and 9 or . or _
+* Next it checks for .
 * Lastly it checks that the input after the . contains uppercase or lowercase letters between a and z and is between 2 and 7 letters in length
 
 I tested different variations of invalid email address to check my validation was working. When an incorrectly formatted email address was entered an message displayed advising "Please provide a valid email address: " and the user could try again.
 
-Once a valid email address was entered "Thank you. You have now been entered into our draw!" is displayed. No other inputs are required. The survey is over.
+Once a valid email address is entered "Thank you. You have now been entered into our draw!" is displayed. No other inputs are required. The survey is over.
 
 ![Test 7 Gitpod Terminal](/assets/images/test-seven-gitpod-terminal.png)
 
@@ -258,7 +260,7 @@ Once a valid email address was entered "Thank you. You have now been entered int
 
 <u>Test 8 - Email Address Adding to Google Sheet</u>
 
-The last test for this project is to check if the valid email entered has been added to the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=1991835168#gid=1991835168). And to also check that the invalid email address have not been added to the sheet.
+The last test for this project is to check if the valid email address entered has been added to the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=1991835168#gid=1991835168). And to also check that any invalid email addresses have not been added to the sheet.
 
 Once again I open my google sheet and check the last entry. Only the valid email address has been added. 
 

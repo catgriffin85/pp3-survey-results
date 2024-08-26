@@ -140,7 +140,7 @@ Once these issues were resovled, no errors were shown for my code.
 
 ### Input Testing
 
-<u>Test 1 - Question 1 Input</u>
+<strong>Test 1 - Question 1 Input</strong>
 
 For this first test of the input on question one the expected behaviour is that the user input will only be accepted if it is 1, 2, 3, 4 or 5. It can have spaces at either side but it cannot be blank, contain a number less than 1 or greater than 5 and it cannot contain letters. If an invalid input is entered an error message will be displayed saying "Invalid input! Please try again:" and the user will get another opportunity to input their answer. Validation will continue until the correct input has been entered. Once the correct input has been entered the next question will be displayed.
 
@@ -156,7 +156,7 @@ This second test is run exactly the same as the first test. The same behaviour i
 
 ![Test 2 Heroku Terminal](/assets/images/test-two-heroku-terminal.png)
 
-<u>Test 3 - Question 3 Input</u>
+<strong>Test 3 - Question 3 Input</strong>
 
 This third test is run exactly the same as the first and second tests. The same behaviour is expected and the same validation is in place. Once the correct input has been entered a thank you message will be displayed and then the survey results and option to enter a draw.
 
@@ -164,13 +164,13 @@ This third test is run exactly the same as the first and second tests. The same 
 
 ![Test 3 Heroku Terminal](/assets/images/test-three-heroku-terminal.png)
 
-<u>Test 4 - Inputs Adding to Google Sheet</u>
+<strong>Test 4 - Inputs Adding to Google Sheet</strong>
 
 Once I know my inputs are valid, I need to check that the data is flowing through to the google sheet. To check this, I opened the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=0#gid=0) to the "results" tab and scrolled to the last line of information. It matches the last entry into the survey so the input is being added to my Google Sheet.
 
 ![Google Sheet Input](/assets/images/google-sheet-check-input.png)
 
-<u>Test 5 - Survey Results</u>
+<strong>Test 5 - Survey Results</strong>
 
 There are three parts to the testing for the Survey Results section.
 
@@ -182,7 +182,7 @@ For the example in the print screen:
 
 ![Test 5 Survey Results](/assets/images/test-five-survey-results.png)
 
-<u>Correct Input</u>
+Correct Input
 
 * Question one input was "3" which is "average". The first line of the survey results advises of other visitors who rated their experience as "average". This is correct so the input referenced is correct.
 
@@ -190,7 +190,7 @@ For the example in the print screen:
 
 * Question three input was "4" which is "likely". The third line of the survey results advises of other visitors who are "likely" to recommend to a friend. This is correct so the input referenced is correct. 
 
-<u>Correct Count of People</u>
+Correct Count of People
 
 * Line one of the survey results displays that 26 people also rated their experience as average. To validate this number I opened the google sheet that stores the data and applied a filter. I filtered question one answers by "3" and did a count. The count confirmed that 3 has been entered 26 times into the survey. So the information displayed in the survey results is correct and the count is being taken from the correct column in the google sheet.
 
@@ -204,7 +204,7 @@ For the example in the print screen:
 
 ![Google Sheet Filter Question 3](/assets/images/google-sheet-q3-filter.png)
 
-<u>% Calculation Check</u>
+% Calculation Check
 
 To validate the % provided in the survey results, I did a total count of the entries in the google sheet. At the time of testing, there were 91 entries.
 
@@ -216,7 +216,7 @@ All % displayed in the survey results section are correct.
 
 ![Google Sheet Total Entries](/assets/images/google-sheet-total-entries.png)
 
-<u>Test 6 - Option to Enter Draw</u>
+<strong>Test 6 - Option to Enter Draw</strong>
 
 After the survey results are displayed another message will appear offering the chance to win 2 free day passes. The user must enter either "Y" or "N". Validation has been set up on this input which allows the user to enter either "Y", "N", "y" or "n". Any other input will result in an error message advising the user "Invalid input! Please enter Y or N:" 
 
@@ -234,7 +234,7 @@ If the user enters "N" or "n" the input will be accepted and "Thank you for your
 
 The survey will not begin again and the user will not be asked if they would like to complete another survey. As it is a customer experience survey based off of one specific visit only one survey response is required per user.
 
-<u>Test 7 - Email Address Validation</u>
+<strong>Test 7 - Email Address Validation</strong>
 
 If the users decides to input "Y" or "y" and sees the "Please provide your email address: " input message they must enter a valid email address. 
 
@@ -258,10 +258,90 @@ Once a valid email address is entered "Thank you. You have now been entered into
 
 ![Test 7 Heroku Terminal](/assets/images/test-seven-heroku-terminal.png)
 
-<u>Test 8 - Email Address Adding to Google Sheet</u>
+<strong>Test 8 - Email Address Adding to Google Sheet</strong>
 
 The last test for this project is to check if the valid email address entered has been added to the [Google Sheet](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=1991835168#gid=1991835168). And to also check that any invalid email addresses have not been added to the sheet.
 
 Once again I open my google sheet and check the last entry. Only the valid email address has been added. 
 
 ![Test 8 Google Sheet](/assets/images/google-sheet-check-email-address.png)
+
+## Bugs
+
+The only bugs I encounter were during testing when I passed my code through PEP8. Details of the bugs and fixes are covered in the Testing section
+
+There are no unfixed bugs.
+
+## Deployment
+
+This project was developed in Gitpod using Code Institutes template and Google Sheet API and deployed in Heroku. 
+
+### Set up Google Sheet API
+
+Credit to [Jorgen Brattang](https://github.com/JorgenBrattang/daily-math) for the description
+
+* Head to Google cloud platform and sign in or create a free google account
+* From the google cloud platform dashboard click 'Select a new project'. Then select 'New project'.
+* Create a name for your project under 'Project name' then click 'Create'.
+* This should bring up a box with your project in. Underneath click 'SELECT PROJECT'.
+* From the sidebar navigate to 'APIs and services', 'Library'.
+* In the search bar search for google drive.
+* Select 'Google drive API' and click 'ENABLE'.
+* Click the 'CREATE CREDENTIALS' button located to the top right of the page.
+* From the dropdown menu under 'Which API are you using?' select 'Google drive API'.
+* Under 'What data will you be accessing' choose 'Application data'.
+* Under 'Are you planning to use this API with Compute Engine, Kubernetes Engine, App Engine or Cloud Functions?' select 'No, i'm not using them' and click 'NEXT'.
+* Enter a Service Account Name. You can name it whatever you like. I would suggest naming it the same as what you named your project. Then click 'CREATE AND CONTINUE'.
+* In the 'Role' dropdown menu select 'Basic', 'Editor', then click 'Continue'.
+* The next page can be left blank so just click 'DONE'.
+* Under 'Service Accounts' find the account you just created and click it.
+* Navigate to the 'KEYS' tab and click 'ADD KEY', 'Create new key'. Select 'JSON' and click 'CREATE'.
+* This will download a json file to your machine. This normally downloads into your 'downloads' folder but if you're unsure you can right click the file once it's downloaded and click 'show in folder' to locate it.
+* Next we will have to link the Google Sheets API. To do this navigate back to the library by clicking on the burger icon in the top left hand corner and selecting 'APIs and services', 'Library' from the dropdown menu.
+* In the search bar search for 'Google Sheets' and select 'Google Sheets API' and click 'ENABLE'.
+* Now, using a programme like Gitpod open or create a repository.
+* Drag and drop the json file that you downloaded earlier into your workspace. Rename this file to 'creds.json'.
+* Open the file and copy the email address under 'client_email' without the quotation marks.
+* Open up the google sheet you want to use and click the 'Share' button.
+* Paste in the client email. Make sure 'Editor' is selected, untick 'Notify people' and then click 'Share'.
+* To protect sensitive information be sure to add your creds.json file to your .gitignore file inside your editor.
+* In order to use our google sheets API you need to install two additional dependencies into your project.
+* Copy the following code on the first two lines of your workspace
+
+![Import Gspread Code](/assets/images/import-gspread-code.png)
+
+* Below this, add the following code:
+
+![Gspread Code](/assets/images/google-sheet-api-code.png)
+
+### Set up Heroku
+
+Credit to [Jorgen Brattang](https://github.com/JorgenBrattang/daily-math) for the description
+
+* The requirements.txt file in the IDE must be updated to package all dependencies. To do this:
+    * Enter the following into the terminal: 'pip3 freeze > requirements.txt'
+    * Commit the changes and push to GitHub
+* Go to Heroku.com and sign in or create a free account.
+* From the heroku dashboard click the 'Create new app' button.
+* Name the app something unique and choose what region you are in then click 'Create app'.
+* Go to the settings tab and find the Config Vars section. Click 'Reveal Config Vars'.
+* In the field for KEY enter the value CREDS in all capitals.
+* In the field for VALUE copy and paste the entire contents of your creds.json file from your project. Then click 'Add'.
+* In the field for KEY enter PORT in all capitals, then in the field for VALUE enter 8000. Then click 'Add'.
+* Scroll down to the Buildpacks section and click 'Add buildpack'.
+* Click Python then save changes.
+* Add another buildpack by clicking 'Add buildpack' and this time click Nodejs then save changes.
+* Make sure that Python appears above Nodejs in the buildpack section. If it does not you can click and drag them to change the order.
+* Then head over to the deploy section by clicking deploy from the nav bar at the top of the page.
+* From the 'Deployment method' section select GitHub and click 'Connect to GitHub'.
+* Enter the repository name as it is in GitHub and click 'search'.
+* Click the 'connect' button next to the repository to link it to heroku.
+* To deploy, scroll down and click the 'Deploy Branch' button.
+* Heroku will notify you that the app was successfully deployed with a button to view the app.
+* If you want to rebuild your app automatically you can also select the 'Enable Automatic Deploys' button which will then rebuild the app every time you push any changes.
+
+## Credits
+
+I used [Jorgen Brattang](https://github.com/JorgenBrattang/daily-math) for the decription on how to connect the Google Sheet API and how to deplay in Heroku.
+
+I used [Geeks for Geeks](https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python) website for the email address validation code.

@@ -48,7 +48,7 @@ Inititally when planning my project I felt my idea for a survey was not too comp
 
 ## Data Storage (Google Sheets)
 
-Both the survey answers and the users email address was stored in the google sheet. The calculation for survey results used the data collected the the google sheet. You can veiw the sheet [here](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=0#gid=0)
+Both the survey answers and the users email addresses are stored in the google sheet. The calculation for survey results use the data collected in the google sheet. You can veiw the sheet [here](https://docs.google.com/spreadsheets/d/1braNOvh9GAhV9h-CeiLNWs9XDPU58KwQL3b_o4m4Tuc/edit?gid=0#gid=0)
 
 ## Features
 
@@ -58,7 +58,7 @@ The survey is intended to be used only once per user so an option to complete th
 
 ### Welcome Section
 
-The terminal opens with the welcome section. This section thanks the user for visiting Bunratty Castle and requests that the user completed a survey.
+The terminal opens with the welcome section. This section thanks the user for visiting Bunratty Castle and requests that the user complete a survey.
 
 The first question is displayed with the welcome message.
 
@@ -76,7 +76,7 @@ Once all 3 questions have been entered a thank you message will display to the u
 
 ### Results Section
 
-Once all questions have been answered and the thank you message has been displayed the user will be provided with surevey results that let them know how many other people answered the survey the same as them and the % to the total number of survey responses. 
+Once all questions have been answered and the thank you message has been displayed the user will be provided with survey results that let them know how many other people answered the survey the same as them and the % to the total number of survey responses. 
 
 For example: if a user has entered "5" for "excellent" as their answer to the first question they will be show the % of people who also answered "excellent" to that question as well as the total number of people who answered the same. 
 
@@ -117,8 +117,8 @@ If the user enters "Y", they will be asked to input their email address. Using c
 I tested my project by doing the following:
 
 1. Passed the code through a PEP8 linter and fixed all errors.
-2. Tried invalid inputs to all input choices and made sure error messages were displayed.
-3. Completed all input tests in my local terminal and the Heroku terminal.
+2. Tried invalid inputs to all input choices and checked error messages were correctly displayed.
+3. Completed all input tests in my Gitpod terminal and the Heroku terminal.
 
 ### PEP8 Linter Testing:
 
@@ -134,7 +134,7 @@ When I first used the PEP8 validator on my code, a few errors were identified:
 * Trailing whitespace
     * This is also self explanatory and was resolved by removing the white space at the end of the lines that were flagged.
 
-Once these issues were resovled, no errors were shown for my code.
+All issues were resovled and now no errors are found in my code.
 
 ![CI Python Linter Results](/assets/images/ci-python-linter-results.png)
 
@@ -236,7 +236,7 @@ The survey will not begin again and the user will not be asked if they would lik
 
 <strong>Test 7 - Email Address Validation</strong>
 
-If the users decides to input "Y" or "y" and sees the "Please provide your email address: " input message they must enter a valid email address. 
+If the users inputs "Y" or "y" and they will see the "Please provide your email address: " input message and must enter a valid email address to continue. 
 
 To validate the email address I took some code from [Geeks for Geeks](https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python) website. This checked if the input was in the correct format. 
 
